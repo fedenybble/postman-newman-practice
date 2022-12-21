@@ -1,0 +1,19 @@
+{
+  "name": "practicapostman",
+  "version": "1.0.0",
+  "description": "Practica postman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "newmanFede:json": "newman run collections/RunOnNewman.json",
+    "newmanFede:link": "newman run https://api.postman.com/collections/24882994-2384f0bf-b469-4284-aa80-004dde69661b?access_key=PMAT-01GMP0DFXXQN9ZYAG1ME422B2N",
+    "newmanFede:report": "newman run collections/RunOnNewman.json -r htmlextra"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^5.3.2",
+    "newman-reporter-html": "^1.0.5",
+    "newman-reporter-htmlextra": "^1.22.11"
+  }
+}
