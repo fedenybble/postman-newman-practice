@@ -2,7 +2,7 @@ name: Newman CI
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "origin" ]
 
 jobs:
   build:
