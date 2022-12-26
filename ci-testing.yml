@@ -1,21 +1,22 @@
-name: NOMBRE_PIPELINE
-# CUANDO_SE_EJECUTA_EL_PIPELINE(trigger)
-on: push
-    # pull_request:
-    #         SE EJECUTA CUANDO SE CREA UN pull_request
-    #       Ejecuto proceso automatizados para validar el PR (por ej, sonarq, correr el feature automatizado, etc)
+name: Newman CI
 
-    # push:
-    #   branch: "NOMBRE_BRANCH"
-    #         SE EJECUTA CUANDO SE MERGEA DENTRO DE UN BRANCH CON EL NOMBRE NOMBRE_BRANCH
-    #       Ejecuto la regresion de pruebas, a nivel funcional para validar toda la aplicacion
+on:
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-# las tareas que se van a ejecutar de manera automatizada
-  my-job:
+  build:
     runs-on: ubuntu-latest
-    # En que entorno va a correr (sistema operativo)
+    strategy:
+     matrix:
+       node-version: [14.x, 16.x, 18.x]
+
     steps:
-      - uses: actions/checkout@v3
-        name: PASO1
-        run: echo "Hello World!"
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install 
+    - run: npm run newmanAlan:enviroment
