@@ -1,0 +1,15 @@
+{
+	"id": "40692711-f88e-4c80-bed3-7ac1b57857f8",
+	"name": "EnvironmentFedeP",
+	"values": [
+		{
+			"key": "base_url_petstore",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-12-22T14:39:18.638Z",
+	"_postman_exported_using": "Postman/10.6.9-221219-0711"
+}
